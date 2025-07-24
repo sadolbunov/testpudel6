@@ -1,20 +1,20 @@
 while True:
-    try:
-        vopros = float(input('Введіть перше число\n'))
-    except ValueError:
+    vopros_input = input('Введіть перше число\n')
+    if not vopros_input.isdigit():
         print("Це не число. Спробуйте ще раз.")
         continue
+    vopros = int(vopros_input)
 
     vopros1 = input('Введіть оператора (+,-,*,/)\n')
     if vopros1 not in ['+', '-', '*', '/']:
         print("Невірно. Спробуйте ще раз.")
         continue
 
-    try:
-        vopros3 = float(input('Введіть друге число\n'))
-    except ValueError:
+    vopros3_input = input('Введіть друге число\n')
+    if not vopros3_input.isdigit():
         print("Це не число. Спробуйте ще раз.")
         continue
+    vopros3 = int(vopros3_input)
 
     if vopros1 == '+':
         otvet = vopros + vopros3
@@ -27,9 +27,12 @@ while True:
             print("На нуль ділити не можна.")
             continue
         otvet = vopros / vopros3
+
     print('Відповідь =', int(otvet))
+
     otvetfinal = input('1. Вихід 2. Продовжити\n')
     if otvetfinal == '2':
         continue
-    elif otvetfinal =='1':
+    elif otvetfinal == '1':
         break
+
